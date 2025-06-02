@@ -1,0 +1,38 @@
+xml
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Баоларм — Анти-будильник</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+</head>
+<body>
+  <div class="container">
+    <h1>Баоларм — Анти-будильник</h1>
+    <p>Снова превращаешь простую задачу "лечь спать" в квест на выживание?</p>
+    <input type="time" id="bedtime">
+    <button id="sleepBtn">Иду спать!</button>
+    <button id="wakeupBtn">Я проснулся!</button>
+    <div id="comment" class="comment"></div>
+    <div id="status"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
